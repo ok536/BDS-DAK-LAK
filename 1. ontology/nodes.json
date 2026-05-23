@@ -1,0 +1,18 @@
+{
+  "canonical_nodes": [
+
+    "Land",
+    "Area",
+    "Road",
+    "Project",
+    "Broker",
+    "Developer",
+    "Infrastructure",
+    "Amenity",
+    "Policy",
+    "Risk",
+    "Feature",
+    "Investor",
+    "Bank"
+  ]
+}
