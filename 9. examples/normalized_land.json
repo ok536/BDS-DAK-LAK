@@ -1,0 +1,26 @@
+{
+  "entity": "Land",
+
+  "properties": {
+
+    "price_billion": 2.8,
+
+    "width_m": 6,
+
+    "length_m": 20,
+
+    "legal_status": "FR"
+  },
+
+  "relationships": [
+
+    {
+      "type": "NEAR",
+
+      "target": {
+        "entity": "Amenity",
+        "type": "university"
+      }
+    }
+  ]
+}
