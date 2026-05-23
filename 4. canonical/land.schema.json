@@ -1,0 +1,112 @@
+{
+  "schema_name": "Canonical Zillow-style Real Estate Object",
+
+  "schema_version": "1.0",
+
+  "entity": "Land",
+
+  "required_properties": [
+
+    "id",
+
+    "price_billion",
+
+    "area_m2",
+
+    "lat",
+
+    "lng"
+  ],
+
+  "properties": {
+
+    "id": "string",
+
+    "title": "string",
+
+    "status": "string",
+
+    "price_billion": "float",
+
+    "estimated_value_billion": "float",
+
+    "price_per_m2_million": "float",
+
+    "area_m2": "float",
+
+    "width_m": "float",
+
+    "length_m": "float",
+
+    "shape": "string",
+
+    "legal_status": "enum",
+
+    "direction": "enum",
+
+    "road_width_m": "float",
+
+    "alley_type": "string",
+
+    "ward": "string",
+
+    "city": "string",
+
+    "province": "string",
+
+    "country": "string",
+
+    "lat": "float",
+
+    "lng": "float",
+
+    "flood_risk": "string",
+
+    "noise_level": "string",
+
+    "liquidity_score": "float",
+
+    "growth_score": "float",
+
+    "undervalued_score": "float",
+
+    "ai_score": "float",
+
+    "market_confidence": "float",
+
+    "days_on_market": "integer",
+
+    "view_count": "integer",
+
+    "save_count": "integer",
+
+    "contact_count": "integer",
+
+    "price_change_count": "integer",
+
+    "semantic_tags": "array",
+
+    "source": "string",
+
+    "created_at": "datetime"
+  },
+
+  "relationships": [
+
+    "IN_AREA",
+
+    "LOCATED_ON",
+
+    "LISTED_BY",
+
+    "NEAR",
+
+    "CONNECTED_TO",
+
+    "AFFECTED_BY",
+
+    "HAS_FEATURE",
+
+    "HAS_RISK"
+  ]
+}
