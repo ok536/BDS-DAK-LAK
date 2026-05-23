@@ -1,0 +1,29 @@
+MERGE (l:Land {id: "BMT_2026_001"})
+SET l.raw_title = "Đất hẻm Lê Duẩn giá tốt",
+    l.raw_description = "Bán gấp lô đất 150m2, thổ cư 100%, hẻm 4m",
+
+    l.address = "Hẻm 123 Lê Duẩn",
+
+    l.area_m2 = 150,
+    l.frontage_m = 5,
+    l.depth_m = 30,
+
+    l.price_total_vnd = 1250000000,
+    l.price_total_billion = 1.25,
+    l.price_per_m2_vnd = 8333333,
+    l.price_per_m2_million = 8.33,
+
+    l.legal_status = "Thổ cư 100%",
+    l.road_type = "hẻm",
+    l.road_width_m = 4,
+
+    l.direction = "đông",
+
+    l.lat = 12.689123,
+    l.lng = 108.067456,
+
+    l.source = "facebook",
+    l.source_url = "https://facebook.com/post/xxx",
+
+    l.created_at = date(),
+    l.updated_at = date()
