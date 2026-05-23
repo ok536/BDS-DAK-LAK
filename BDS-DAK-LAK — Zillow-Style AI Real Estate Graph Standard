@@ -1,0 +1,36 @@
+style/
+│
+├── ontology/
+│   ├── nodes.json
+│   ├── relationships.json
+│   ├── enums.json
+│   └── constraints.cypher
+│
+├── canonical/
+│   ├── land.schema.json
+│   ├── project.schema.json
+│   ├── broker.schema.json
+│   ├── area.schema.json
+│   └── infrastructure.schema.json
+│
+├── extraction_rules/
+│   ├── semantic_mapping.json
+│   ├── vietnamese_patterns.json
+│   └── extraction_rules.md
+│
+├── prompts/
+│   ├── extractor_prompt.md
+│   └── graph_reasoning_prompt.md
+│
+├── cypher_templates/
+│   ├── create_land.cypher
+│   ├── update_land.cypher
+│   ├── search_land.cypher
+│   └── graph_queries.cypher
+│
+├── examples/
+│   ├── raw_listing.txt
+│   ├── normalized_land.json
+│   └── generated_cypher.cypher
+│
+└── README.md
