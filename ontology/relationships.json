@@ -1,0 +1,26 @@
+{
+  "canonical_relationships": [
+
+    "IN_AREA",
+
+    "LOCATED_ON",
+
+    "NEAR",
+
+    "LISTED_BY",
+
+    "CONNECTED_TO",
+
+    "AFFECTED_BY",
+
+    "HAS_FEATURE",
+
+    "HAS_RISK",
+
+    "DEVELOPS",
+
+    "INVESTS_IN",
+
+    "PARTNERS_WITH"
+  ]
+}
