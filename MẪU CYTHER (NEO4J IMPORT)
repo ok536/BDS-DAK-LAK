@@ -1,0 +1,35 @@
+MERGE (l:Land {id: $id})
+ON CREATE SET l.created_at = date()
+SET
+    l.raw_title = $raw_title,
+    l.raw_description = $raw_description,
+
+    l.address = $address,
+
+    l.area_m2 = CASE WHEN $area_m2 IS NULL OR $area_m2 = "" THEN NULL ELSE toFloat($area_m2) END,
+    l.frontage_m = CASE WHEN $frontage_m IS NULL OR $frontage_m = "" THEN NULL ELSE toFloat($frontage_m) END,
+    l.depth_m = CASE WHEN $depth_m IS NULL OR $depth_m = "" THEN NULL ELSE toFloat($depth_m) END,
+
+    l.price_total_vnd = CASE WHEN $price_total_vnd IS NULL OR $price_total_vnd = "" THEN NULL ELSE toFloat($price_total_vnd) END,
+    l.price_total_billion = CASE WHEN $price_total_vnd IS NULL OR $price_total_vnd = "" THEN NULL ELSE toFloat($price_total_vnd) / 1000000000 END,
+
+    l.price_per_m2_vnd =
+        CASE
+            WHEN $price_total_vnd IS NULL OR $area_m2 IS NULL OR $area_m2 = "" OR toFloat($area_m2) <= 0
+            THEN NULL
+            ELSE toFloat($price_total_vnd) / toFloat($area_m2)
+        END,
+
+    l.legal_status = $legal_status,
+    l.road_type = $road_type,
+    l.road_width_m = CASE WHEN $road_width_m IS NULL OR $road_width_m = "" THEN NULL ELSE toFloat($road_width_m) END,
+
+    l.direction = $direction,
+
+    l.lat = CASE WHEN $lat IS NULL OR $lat = "" THEN NULL ELSE toFloat($lat) END,
+    l.lng = CASE WHEN $lng IS NULL OR $lng = "" THEN NULL ELSE toFloat($lng) END,
+
+    l.source = $source,
+    l.source_url = $source_url,
+
+    l.updated_at = date()
