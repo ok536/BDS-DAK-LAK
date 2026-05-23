@@ -1,0 +1,167 @@
+{
+  "schema_name": "Canonical style Real Estate Object",
+
+  "schema_version": "1.0",
+
+  "entity": "Land",
+
+  "properties": {
+
+    "id": "BMT_2026_0001",
+
+    "title": "Dat hem Le Duan",
+
+    "status": "available",
+
+    "price_billion": 2.8,
+
+    "estimated_value_billion": 3.1,
+
+    "price_per_m2_million": 23.3,
+
+    "area_m2": 120,
+
+    "width_m": 6,
+
+    "length_m": 20,
+
+    "shape": "rectangle",
+
+    "legal_status": "FR",
+
+    "direction": "E",
+
+    "road_width_m": 6,
+
+    "alley_type": "car_access",
+
+    "ward": "Tan An",
+
+    "city": "Buon Ma Thuot",
+
+    "province": "Dak Lak",
+
+    "country": "VN",
+
+    "lat": 12.6792,
+
+    "lng": 108.0375,
+
+    "flood_risk": "low",
+
+    "noise_level": "low",
+
+    "liquidity_score": 8.2,
+
+    "growth_score": 9.1,
+
+    "undervalued_score": 8.9,
+
+    "ai_score": 8.7,
+
+    "market_confidence": 0.82,
+
+    "days_on_market": 12,
+
+    "view_count": 1450,
+
+    "save_count": 120,
+
+    "contact_count": 14,
+
+    "price_change_count": 1,
+
+    "semantic_tags": [
+      "near_university",
+      "high_growth",
+      "corner_lot"
+    ],
+
+    "source": "facebook",
+
+    "created_at": "2026-05-23"
+  },
+
+  "relationships": [
+
+    {
+      "type": "IN_AREA",
+
+      "target": {
+        "entity": "Area",
+        "name": "Tan An"
+      }
+    },
+
+    {
+      "type": "LOCATED_ON",
+
+      "target": {
+        "entity": "Road",
+        "name": "Le Duan"
+      }
+    },
+
+    {
+      "type": "LISTED_BY",
+
+      "target": {
+        "entity": "Broker",
+        "name": "Nguyen Van A",
+        "phone": "0909000001"
+      }
+    },
+
+    {
+      "type": "NEAR",
+
+      "properties": {
+        "distance_m": 800
+      },
+
+      "target": {
+        "entity": "Amenity",
+        "name": "Buon Ma Thuot University",
+        "type": "university"
+      }
+    },
+
+    {
+      "type": "CONNECTED_TO",
+
+      "target": {
+        "entity": "Infrastructure",
+        "name": "Eastern Ring Road",
+        "type": "ring_road"
+      }
+    },
+
+    {
+      "type": "AFFECTED_BY",
+
+      "target": {
+        "entity": "Policy",
+        "name": "BMT Master Plan 2030"
+      }
+    },
+
+    {
+      "type": "HAS_FEATURE",
+
+      "target": {
+        "entity": "Feature",
+        "name": "corner_lot"
+      }
+    },
+
+    {
+      "type": "HAS_RISK",
+
+      "target": {
+        "entity": "Risk",
+        "name": "legal_delay",
+        "level": "medium"
+      }
+    }
+  ]
+}
