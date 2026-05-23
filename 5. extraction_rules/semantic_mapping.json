@@ -1,0 +1,30 @@
+{
+  "gần": "NEAR",
+
+  "liền kề": "NEAR",
+
+  "cạnh": "NEAR",
+
+  "thuộc khu vực": "IN_AREA",
+
+  "nằm trong": "IN_AREA",
+
+  "sổ đỏ": "FR",
+
+  "thổ cư": "FR",
+
+  "đường lớn": {
+    "entity": "Road",
+    "type": "main_road"
+  },
+
+  "gần trường": {
+    "relation": "NEAR",
+    "target_type": "school"
+  },
+
+  "gần bệnh viện": {
+    "relation": "NEAR",
+    "target_type": "hospital"
+  }
+}
