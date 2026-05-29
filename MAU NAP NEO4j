@@ -1,0 +1,27 @@
+// 1. Tìm hoặc tạo các nút thực thể (Master Nodes)
+MERGE (l:Land {id: $id})
+MERGE (a:Agent {id: $agent_id})
+MERGE (r:Road {name: $road_name})
+MERGE (loc:Location {phuong_xa: $phuong, quan_huyen: $quan})
+MERGE (s:Source {name: $source_name})
+
+// 2. Thiết lập Mối quan hệ (Edges) - "Bộ não" của hệ thống
+MERGE (a)-[:POSTED]->(l)
+MERGE (l)-[:LISTED_BY]->(a)
+MERGE (l)-[:BELONGS_TO]->(r)
+MERGE (l)-[:LOCATED_IN]->(loc)
+MERGE (l)-[:CRAWLED_FROM]->(s)
+
+// 3. Cập nhật Thuộc tính (Properties) - Code xử lý dữ liệu của bạn
+SET l.created_at = COALESCE(l.created_at, date()),
+    l.raw_title = $raw_title,
+    l.area_m2 = CASE WHEN $area_m2 IS NOT NULL THEN toFloat($area_m2) END,
+    l.price_total_vnd = toFloat($price_total_vnd),
+    // ... thêm các CASE WHEN khác của bạn ở đây
+    l.updated_at = date()
+
+// 4. Lưu lịch sử giá (Nếu có giá mới)
+WITH l, $price_total_vnd as price
+WHERE price IS NOT NULL
+CREATE (ps:PriceSnapshot {gia_tri: toFloat(price), thoi_diem: datetime()})
+CREATE (l)-[:HAS_PRICE]->(ps)
