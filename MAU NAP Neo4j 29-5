@@ -1,0 +1,21 @@
+// 1. Dùng ID chuẩn hóa làm khóa MERGE (Vd: road_id = "bmt_leduan")
+MERGE (l:Land {id: $id})
+MERGE (r:Road {id: $road_id}) SET r.name = $road_name // Chống trùng tên
+MERGE (loc:Location {id: $loc_id}) SET loc.name = $phuong_xa, loc.quan = $quan_huyen
+
+// 2. Kết nối
+MERGE (l)-[:BELONGS_TO]->(r)
+MERGE (l)-[:LOCATED_IN]->(loc)
+
+// 3. Cập nhật chỉ khi dữ liệu mới khác dữ liệu cũ (Chốt an toàn)
+SET l.raw_title = $raw_title, 
+    l.area_m2 = toFloat($area_m2),
+    l.price_total_vnd = toFloat($price_total_vnd)
+
+// 4. Chỉ tạo Snapshot nếu giá thay đổi
+WITH l, toFloat($price_total_vnd) as new_price
+OPTIONAL MATCH (l)-[:HAS_PRICE]->(last:PriceSnapshot)
+WITH l, new_price, last ORDER BY last.thoi_diem DESC LIMIT 1
+WHERE last IS NULL OR last.gia_tri <> new_price
+CREATE (ps:PriceSnapshot {gia_tri: new_price, thoi_diem: datetime()})
+CREATE (l)-[:HAS_PRICE]->(ps)
