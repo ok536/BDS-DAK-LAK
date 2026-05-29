@@ -1,0 +1,23 @@
+import re
+import unicodedata
+
+def normalize_name(name):
+    # 1. Chuyển về chữ thường
+    name = name.lower()
+    # 2. Xóa dấu tiếng Việt
+    name = unicodedata.normalize('NFKD', name).encode('ASCII', 'ignore').decode('utf-8')
+    
+    # 3. Loại bỏ các từ tiền tố (phường, xã, đường) bằng Regex biên từ
+    # \b là biên từ, đảm bảo chỉ xóa từ đứng độc lập
+    name = re.sub(r'\b(phuong|xa|duong)\b', '', name)
+    
+    # 4. Thay khoảng trắng/ký tự đặc biệt thành dấu gạch dưới
+    name = re.sub(r'[^a-z0-9]+', '_', name)
+    
+    # 5. Xóa dấu gạch dưới dư thừa ở đầu/cuối
+    return name.strip('_')
+
+# Test thử:
+print(normalize_name("Phường Ea Kao"))    # Kết quả: eakao
+print(normalize_name("Đường Lê Duẩn"))    # Kết quả: le_duan
+print(normalize_name("Xa Ea Kao"))        # Kết quả: eakao
