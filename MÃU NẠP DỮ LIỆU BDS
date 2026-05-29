@@ -1,0 +1,50 @@
+from standardize_id import standardize_id
+from neo4j import GraphDatabase
+
+# 1. Cấu hình kết nối
+driver = GraphDatabase.driver("bolt://localhost:7687", auth=("neo4j", "mat_khau_cua_ban"))
+
+def nap_tin_dang(tin):
+    # --- BƯỚC 1: CHUẨN HÓA ĐỊA DANH ---
+    loc_id = standardize_id(tin["phuong"])
+    road_id = standardize_id(tin["duong"])
+    
+    # --- BƯỚC 2: TỰ TẠO ID DUY NHẤT CHO LÔ ĐẤT ---
+    # Kết hợp các đặc điểm để ID luôn là duy nhất, không bao giờ trùng
+    land_id = f"land_{road_id}_{tin['dien_tich']}_{tin['gia']}"
+    
+    # --- BƯỚC 3: CÂU LỆNH NẠP (CYPHER) ---
+    query = """
+    MERGE (loc:Location {id: $loc_id}) ON CREATE SET loc.name = $phuong
+    MERGE (r:Road {id: $road_id}) ON CREATE SET r.name = $duong
+    
+    MERGE (l:Land {id: $land_id})
+    SET l.title = $title,
+        l.area = $dien_tich,
+        l.price = $gia,
+        l.phone = $sdt
+        
+    MERGE (l)-[:LOCATED_IN]->(loc)
+    MERGE (l)-[:BELONGS_TO]->(r)
+    """
+    
+    with driver.session() as session:
+        session.run(query, {
+            "loc_id": loc_id, "phuong": tin["phuong"],
+            "road_id": road_id, "duong": tin["duong"],
+            "land_id": land_id, "title": tin["title"],
+            "dien_tich": tin["dien_tich"], "gia": tin["gia"], "sdt": tin["sdt"]
+        })
+    print(f"✅ Đã nạp xong: {tin['title']} (ID đất: {land_id})")
+
+# --- DỮ LIỆU ĐẦU VÀO (Bạn chỉ cần điền vào đây) ---
+tin_moi = {
+    "title": "Lô đất đẹp Phường Ea Kao",
+    "phuong": "Phường Ea Kao",
+    "duong": "Chu Văn An",
+    "dien_tich": 290,
+    "gia": 795000000,
+    "sdt": "0849668479"
+}
+
+nap_tin_dang(tin_moi)
