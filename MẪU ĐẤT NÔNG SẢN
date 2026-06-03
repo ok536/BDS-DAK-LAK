@@ -1,0 +1,34 @@
+---
+id: [Mã số tự đặt - ví dụ: DAK-EKTUR-001]
+vi_tri: [Xã/Huyện]
+toa_do: [Link Google Maps hoặc Tọa độ GPS]
+trang_thai: [Đang theo dõi/Đã mua/Loại bỏ]
+---
+
+# Lô đất: [Tên địa danh/Mã số]
+
+## 1. Thông số Kỹ thuật (Ground Truth)
+- **Diện tích:** ... m2
+- **Loại đất:** [Đất trồng cây lâu năm/Đất thổ cư/...]
+- **Pháp lý:** [Sổ đỏ/Giấy tay/Có tranh chấp]
+- **Giá thị trường hiện tại:** ... VNĐ/sào
+- **Giá chủ đất mong muốn:** ... VNĐ/sào
+
+## 2. Hệ sinh thái Nông sản (Crop Intel)
+- **Loại cây chính:** [Cà phê/Sầu riêng/Tiêu]
+- **Tuổi cây:** [Năm trồng]
+- **Tình trạng:** [Khỏe/Bệnh/Cần cải tạo]
+- **Năng suất bình quân:** ... tấn/năm
+
+## 3. Các yếu tố "Điểm mù" (BlindSpot Factors)
+- **Hạ tầng bao quanh:** [Gần đường nhựa/Điện/Nguồn nước]
+- **Quy hoạch (Tin đồn/Sự thật):** [Đường cao tốc/Khu công nghiệp/Dự án TN]
+- **Mối quan hệ:** [Môi giới là ai? Chủ đất có nợ ngân hàng không?]
+
+## 4. Phân tích của AI (Logic "Nhảy số")
+- **Đánh giá rủi ro:** [Thấp/Trung bình/Cao]
+- **Tiềm năng (ROI):** [Nhận định về mức tăng giá]
+- **Chiến lược:** [Nên mua/Chờ đợi/Đàm phán giá giảm]
+
+## 5. Nhật ký thực địa (Live Logs)
+- [Ngày/Tháng/Năm]: [Ghi chép quan sát thực tế từ Node]
