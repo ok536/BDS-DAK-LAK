@@ -1,0 +1,35 @@
+---
+type: policy | signal | asset
+source: 
+date: YYYY-MM-DD
+confidence: low | medium | high
+---
+
+# TITLE
+
+## 1. SUMMARY
+- 
+- 
+- 
+
+## 2. SIGNALS (KEY INFORMATION)
+- Signal 1:
+- Signal 2:
+- Signal 3:
+
+## 3. ECONOMIC IMPACT
+- Asset affected: [[...]]
+- Capital flow: ↑ / ↓ / ↔
+- Market expectation: ↑ / ↓ / ↔
+
+## 4. CAUSAL CHAIN
+Policy → Signal → Capital Flow → Asset Value
+
+## 5. LINKED NODES
+- [[...]]
+- [[...]]
+
+## 6. NOTES (LLM REASONING)
+- Assumptions:
+- Weak points:
+- Interpretation risk:
